@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<style>
+*{margin:0; padding:0;}
+table,td{border:.5px solid indianred;}
+table{background:darkblue;}
+tr{background:black; color:white;
+font-size:20px;
+}
+::selection{color:black; background:palegreen;}
+
+</style>
+<body>
+    <div>
+        <table>
+<tr >
+<td>Day</td>
+<td id="a" class="period">1150-1230</td>
+<td id="b" class="period">1240-1320</td>
+<td id="c" class="period">1400-1440</td>
+<td id="d" class="period">1450-1530</td>
+</tr>
+
+<tr >
+
+<td class="day" id="1">sat</td>
+
+<td id="a1">
+ict/mna <br/>
+ID: 9894493425 <br/>
+Password : mna@rumc
+</td>
+
+<td id="b1">
+eng/sps <br/>
+ID: 4451007357 <br/>
+Password: sps@rumc
+</td>
+
+<td id="c1">
+math/glb <br/>
+ID: 5724798978 <br/>
+Password : glb@rumc
+</td>
+
+<td id="d1">n.c</td>
+
+</tr>
+       
+<tr >
+
+<td class="day" id="2">sun</td>
+
+<td id="a2">
+eng/mzh <br/> 
+ID: 2126734747 <br/>
+Password:mzh@rumc
+</td>
+
+<td id="b2">
+bang/ak <br/>
+ID 455 683 9418 <br/>
+Password: ak@rumc
+</td>
+
+<td id="c2">
+chem/yb <br/>
+ID 256 945 7920  <br/>
+Password- yb@rumc
+</td>
+
+<td id="d2">
+bio/fam <br/>
+ID : 523 414 1448 <br/>
+Password: fam@rumc
+</td>
+
+</tr>
+   
+<tr >
+<td class="day" id="3">mon</td>
+
+<td id="a3">
+bio/ay <br/>
+ID: 8514058368  <br/>
+Password-ay@rumc
+</td>
+
+<td id="b3">
+phy/mhu <br/>
+ID: 428 992 7737  <br/>
+Password : mhu@rumc 
+</td>
+
+<td id="c3">
+math/mfn <br/>
+ID no: 3056994432  <br/>
+Password: mfn@rumc
+</td>
+<td id="d3">n.c</td>
+
+</tr>
+        
+<tr >
+<td class="day" id="4">tue</td>
+
+<td id="a4">
+phy/atmn <br/>
+ID: 406 533 2400 <br/>
+Password :atmn@rumc
+</td>
+
+<td id="b4">
+math/mmu <br/> 
+ID: 2054021488 <br/> 
+Password: mmu@rumc
+</td>
+
+<td id="c4">
+che/sim <br/>
+D: 8603088817  <br/>
+Password: sim@rumc
+</td>
+
+<td id="d4">n.c</td>
+
+</tr>
+        
+<tr >
+
+<td class="day" id="5">wed</td>
+
+<td id="a5">
+phy/mhu <br/>
+ID: 428 992 7737 <br/>
+Password : mhu@rumc
+</td>
+
+<td id="b5">
+bang/sk <br/>
+ID:7485206035 <br/>
+Password :sk@rumc
+</td>
+<td id="c5">
+bio/ay<br/>
+ID: 8514058368  <br/>
+Password-ay@rumc
+</td>
+
+<td id="d5">n.c</td>
+
+</tr>
+        
+<tr >
+
+<td class="day" id="6">thu</td>
+
+<td id="a6">
+eng/mzh <br/>
+ID: 2126734747 <br/>
+Password:mzh@rumc
+</td>
+
+<td id="b6">
+bang/fa-b <br/>
+ID: 524 854 6017 <br/>
+Password: fab@rumc
+</td>
+
+<td id="c6">
+che/sim<br/>
+D: 8603088817  <br/>
+Password: sim@rumc
+</td>
+
+<td id="d6">n.c</td>
+
+</tr>
+        </table>
+    </div>
+</body>
+</html>
+
+<script>
+
+setInterval(function(){
+var d = new Date();
+  var weekday = new Array(7);
+  weekday[0] = "sun";
+  weekday[1] = "mon";
+  weekday[2] = "tue";
+  weekday[3] = "wed";
+  weekday[4] = "thu";
+  weekday[5] = "fri";
+  weekday[6] = "sat";
+
+  var today = weekday[d.getDay()];
+
+var current_time = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+
+
+var cr_tm_int = current_time.split(":").map(function(val){ return parseInt(val,10) } );
+
+var cr_tm_k = cr_tm_int[0]*100 + cr_tm_int[1];
+
+
+for( var i=1 ; i <= 6 ; i++ ){
+
+var day =  document.getElementById(i).innerHTML;
+var day_id  = document.getElementById(i).id;
+
+if( day == today ){
+
+document.getElementsByClassName("day")[i-1].style.cssText="background:darkorange ;";
+break;
+
+};
+
+
+};
+
+
+
+for( n = 0 ; n <= 4 ; n++){
+
+
+var p = document.getElementsByClassName("period")[n].innerHTML;
+
+
+
+var p_split  = p.split("-");
+
+var p_int = p_split.map(function(item){
+
+return parseInt(item,10)
+});
+
+
+
+if( cr_tm_k <=  p_int[1] ){
+
+var p_now  = document.getElementsByClassName("period")[n];
+
+var p_style = p_now.style.cssText="background:deepskyblue; ";
+
+
+var p_id = p_now.id;
+
+var class_now   = document.getElementById(p_id+day_id).style.cssText="background:hotpink";
+
+
+
+
+break;
+
+};
+
+
+
+
+
+
+
+};
+
+
+},200);
+
+
+</script>
