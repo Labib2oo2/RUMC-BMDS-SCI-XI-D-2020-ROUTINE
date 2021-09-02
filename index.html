@@ -282,6 +282,12 @@ var class_now   = document.getElementById(p_id+day_id).style.cssText="";
 
 
 },200);
+const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    console.log(this.responseText);
+  };
+  xhttp.open("GET", "https://labib-flask.herokuapp.com/mon");
+  xhttp.send();
 
 
 </script>
